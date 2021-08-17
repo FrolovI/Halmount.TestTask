@@ -1,11 +1,16 @@
 package ru.halmount.test.entity;
 
-import javax.persistence.Entity;
+import javax.persistence.*;
 
 @Entity
 public class Client {
-    String fullName;
-    String phoneNumber;
-    String email;
-    String passNumber;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "idClient")
+    public Integer id;
+    public Integer idBank;
+    public String fullName;
+    public String phoneNumber;
+    public String email;
+    public String passNumber;
 }

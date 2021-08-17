@@ -1,0 +1,1 @@
+insert into Bank (idBank) values (1);
