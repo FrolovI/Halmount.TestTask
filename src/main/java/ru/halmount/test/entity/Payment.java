@@ -13,7 +13,7 @@ public class Payment {
     public Integer id;
     public Integer idCreditOffer;
     public LocalDate payDate;
-    public BigDecimal sumPay;
-    public BigDecimal sumPayCredit;
-    public BigDecimal sumPercent;
+    public BigDecimal sumPay; // Общая платежка
+    public BigDecimal sumPayCredit; // Платежка за тело кредита
+    public BigDecimal sumPercent; // платежка за процент
 }

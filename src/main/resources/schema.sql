@@ -8,22 +8,22 @@ CREATE TABLE Client (
   phoneNumber  VARCHAR(255)   NOT NULL,
   email        VARCHAR(255)   NOT NULL,
   passNumber   VARCHAR(255)   NOT NULL,
-  FOREIGN KEY(IDBANK) REFERENCES Bank(idBank)
+  FOREIGN KEY(IDBANK) REFERENCES Bank(idBank) ON DELETE CASCADE
 );
 CREATE TABLE Credit (
   idCredit      INT            IDENTITY PRIMARY KEY,
   idBank        INT            NOT NULL,
   creditLimit   DECIMAL(18,2)  NOT NULL,
   percentCredit DECIMAL(7,5)   NOT NULL,
-  FOREIGN KEY(IDBANK) REFERENCES Bank(idBank)
+  FOREIGN KEY(IDBANK) REFERENCES Bank(idBank) ON DELETE CASCADE
 );
 CREATE TABLE CreditOffer (
   idCreditOffer  INT            IDENTITY PRIMARY KEY,
   idClient       INT            NOT NULL,
   idCredit       INT            NOT NULL,
   sumCredit      DECIMAL(18,2)  NOT NULL,
-  FOREIGN KEY(IDCLIENT)  REFERENCES Client(idClient),
-  FOREIGN KEY(IDCREDIT)  REFERENCES Credit(idCredit)
+  FOREIGN KEY(IDCLIENT)  REFERENCES Client(idClient) ON DELETE CASCADE,
+  FOREIGN KEY(IDCREDIT)  REFERENCES Credit(idCredit) ON DELETE CASCADE
 );
 CREATE TABLE Payment (
   idPayment     INT            IDENTITY PRIMARY KEY,
@@ -32,5 +32,5 @@ CREATE TABLE Payment (
   sumPay        DECIMAL(18,2)  NOT NULL,
   sumPayCredit  DECIMAL(18,2)  NOT NULL,
   sumPercent    DECIMAL(18,2)  NOT NULL,
-  FOREIGN KEY(IDCREDITOFFER) REFERENCES CreditOffer(idCreditOffer)
+  FOREIGN KEY(IDCREDITOFFER) REFERENCES CreditOffer(idCreditOffer) ON DELETE CASCADE
 );

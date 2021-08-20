@@ -28,8 +28,9 @@ public class CreditController {
     public Credit putCredit(@PathVariable(name = "idCredit") Integer idCredit, @RequestBody UpdateCreditDTO requestBody) {
         return creditService.putCredit(idCredit, requestBody);
     }
+
     @DeleteMapping("/credits/{idCredit}")
-    public void deleteCredit(@PathVariable(name = "idCredit") Integer idCredit){
+    public void deleteCredit(@PathVariable(name = "idCredit") Integer idCredit) {
         creditService.deleteCredit(idCredit);
     }
 }
