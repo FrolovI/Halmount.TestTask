@@ -8,11 +8,11 @@ import ru.halmount.test.entity.CreditOffer;
 import ru.halmount.test.entity.Payment;
 import ru.halmount.test.model.CreateCreditOfferDTO;
 import ru.halmount.test.model.CreateUserCreditOfferDTO;
-import ru.halmount.test.model.UpdateCreditDTO;
 import ru.halmount.test.model.UpdateCreditOfferDTO;
 import ru.halmount.test.repository.ClientRepository;
 import ru.halmount.test.repository.CreditOfferRepository;
 import ru.halmount.test.repository.CreditRepository;
+import ru.halmount.test.repository.PaymentRepository;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
@@ -21,6 +21,8 @@ import java.util.List;
 
 @Service
 public class CreditOfferService {
+    @Autowired
+    PaymentRepository paymentRepository;
     @Autowired
     CreditOfferRepository creditOfferRepository;
     @Autowired

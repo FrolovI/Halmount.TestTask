@@ -3,7 +3,6 @@ package ru.halmount.test.entity;
 import javax.persistence.*;
 import java.math.BigDecimal;
 import java.time.LocalDate;
-import java.util.Date;
 
 @Entity
 public class Payment {
@@ -11,6 +10,7 @@ public class Payment {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "idPayment")
     public Integer id;
+    @Column(insertable = false, updatable = false)
     public Integer idCreditOffer;
     public LocalDate payDate;
     public BigDecimal sumPay; // Общая платежка

@@ -1,34 +1,25 @@
 package ru.halmount.test;
 
 import javafx.application.Application;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 
-import static javafx.application.Application.launch;
+import java.io.IOException;
 
 public class JavaFXClient extends Application {
-    public static void main(String[] args) {
-        launch(args);
-    }
-
+    public static Stage primaryStage;
     @Override
-    public void start(Stage primaryStage) {
+    public void start(Stage primaryStage) throws IOException {
         primaryStage.setTitle("Hello World!");
-        Button btn = new Button();
-        btn.setText("Say 'Hello World'");
-        btn.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent event) {
-                System.out.println("Hello World!");
-            }
-        });
-        StackPane root = new StackPane();
-        root.getChildren().add(btn);
-        primaryStage.setScene(new Scene(root, 300, 250));
+        JavaFXClient.primaryStage = primaryStage;
+        Parent root = FXMLLoader.load(getClass().getResource("/main.fxml"));
+
+        Scene scene = new Scene(root, 600, 362);
+
+        primaryStage.setTitle("FXML Welcome");
+        primaryStage.setScene(scene);
         primaryStage.show();
     }
 }

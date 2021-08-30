@@ -1,7 +1,5 @@
 package ru.halmount.test.entity;
 
-import jdk.dynalink.linker.LinkerServices;
-
 import javax.persistence.*;
 import java.math.BigDecimal;
 import java.util.List;
@@ -19,7 +17,7 @@ public class CreditOffer {
     @JoinColumn(name = "idCredit")
     public Credit credit;
     public BigDecimal sumCredit;
-    @OneToMany
-    @JoinColumn(name = "idPayment")
+    @OneToMany (cascade = {CascadeType.ALL})
+    @JoinColumn(name = "idCreditOffer")
     public List<Payment> payGraph;
 }
