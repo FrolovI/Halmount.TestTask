@@ -4,6 +4,7 @@ import javax.persistence.*;
 import java.math.BigDecimal;
 import java.util.List;
 
+// Entity to describe a loan proposal
 @Entity
 public class CreditOffer {
     @Id
@@ -17,7 +18,7 @@ public class CreditOffer {
     @JoinColumn(name = "idCredit")
     public Credit credit;
     public BigDecimal sumCredit;
-    @OneToMany (cascade = {CascadeType.ALL})
+    @OneToMany(cascade = {CascadeType.ALL})
     @JoinColumn(name = "idCreditOffer")
     public List<Payment> payGraph;
 }

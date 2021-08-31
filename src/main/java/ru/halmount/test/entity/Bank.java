@@ -3,6 +3,7 @@ package ru.halmount.test.entity;
 import javax.persistence.*;
 import java.util.List;
 
+// Banks entity
 @Entity
 public class Bank {
     @Id

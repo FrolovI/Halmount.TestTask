@@ -59,11 +59,14 @@ public class CreditOfferService {
         queueCreditOffer.credit = creditRepository.findById(requestBody.idCredit).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
         queueCreditOffer.client = clientRepository.findById(requestBody.idClient).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
         if (requestBody.sumCredit.compareTo(queueCreditOffer.credit.creditLimit) < 0) {
-            BigDecimal percentSum = requestBody.sumCredit.multiply(queueCreditOffer.credit.percentCredit).divide(BigDecimal.valueOf(requestBody.monthCount), RoundingMode.HALF_UP);
+            BigDecimal percentSum = requestBody.sumCredit.multiply(queueCreditOffer.credit.percentCredit)
+                    .multiply(BigDecimal.valueOf(requestBody.monthCount))
+                    .divide(BigDecimal.valueOf(12), RoundingMode.HALF_UP)
+                    .divide(BigDecimal.valueOf(100), RoundingMode.HALF_UP);
             BigDecimal resultSum = requestBody.sumCredit.add(percentSum);
             queueCreditOffer.sumCredit = resultSum;
             queueCreditOffer.payGraph = new ArrayList<Payment>();
-            for (int i = 0; i<requestBody.monthCount; i++){
+            for (int i = 0; i < requestBody.monthCount; i++) {
                 Payment payment = new Payment();
                 payment.sumPay = queueCreditOffer.sumCredit.divide(BigDecimal.valueOf(requestBody.monthCount), RoundingMode.HALF_UP);
                 payment.sumPayCredit = requestBody.sumCredit.divide(BigDecimal.valueOf(requestBody.monthCount), RoundingMode.HALF_UP);

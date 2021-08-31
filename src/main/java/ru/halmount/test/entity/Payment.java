@@ -4,6 +4,7 @@ import javax.persistence.*;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 
+// Entity for describing loan payment schedules
 @Entity
 public class Payment {
     @Id

@@ -47,7 +47,7 @@ public class AcceptOfferController implements Initializable {
             requestBody.sumCredit = new BigDecimal(sumCredit.getText());
             requestBody.monthCount = Integer.valueOf(monthCount.getText());
             CreditOffer response = HTTPService.post("http://localhost:8080/users/creditOffers", requestBody, CREDIT_OFFER_TYPE_REFERENCE);
-            JOptionPane.showMessageDialog(null, "You accepted credit on:" + response.sumCredit + "RUB; \nOn:" + requestBody.monthCount + "months");
+            JOptionPane.showMessageDialog(null, "You accepted credit on: " + response.sumCredit + "RUB; \nOn: " + requestBody.monthCount + " month");
         });
 
         back.addEventHandler(MouseEvent.MOUSE_CLICKED, mouseEventNew -> {

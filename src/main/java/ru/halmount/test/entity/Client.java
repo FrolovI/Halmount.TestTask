@@ -2,6 +2,7 @@ package ru.halmount.test.entity;
 
 import javax.persistence.*;
 
+// Clients entity
 @Entity
 public class Client {
     @Id

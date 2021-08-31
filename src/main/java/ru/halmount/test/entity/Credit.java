@@ -3,6 +3,7 @@ package ru.halmount.test.entity;
 import javax.persistence.*;
 import java.math.BigDecimal;
 
+// Credits entity
 @Entity
 public class Credit {
     @Id
