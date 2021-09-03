@@ -50,7 +50,7 @@ public class CRUDController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         switch (MainController.entityType) {
 
-            case CREDIT -> {
+            case CREDIT: {
                 List<Credit> credit = HTTPService.get("http://localhost:8080/credits", LIST_CREDIT_TYPE_REFERENCE);
                 initializeTable(Credit.class, credit);
                 createButton.addEventHandler(MouseEvent.MOUSE_CLICKED, mouseEvent -> {
@@ -177,8 +177,9 @@ public class CRUDController implements Initializable {
                         table.getItems().remove(selectedItem);
                     }
                 });
+                break;
             }
-            case CLIENT -> {
+            case CLIENT: {
                 List<Client> clients = HTTPService.get("http://localhost:8080/clients", LIST_CLIENT_TYPE_REFERENCE);
                 initializeTable(Client.class, clients);
                 createButton.addEventHandler(MouseEvent.MOUSE_CLICKED, mouseEvent -> {
@@ -305,8 +306,9 @@ public class CRUDController implements Initializable {
                         table.getItems().remove(selectedItem);
                     }
                 });
+                break;
             }
-            case BANK -> {
+            case BANK: {
                 List<Bank> banks = HTTPService.get("http://localhost:8080/banks", LIST_BANK_TYPE_REFERENCE);
                 initializeTable(Bank.class, banks);
                 createButton.addEventHandler(MouseEvent.MOUSE_CLICKED, mouseEvent -> {
@@ -345,8 +347,9 @@ public class CRUDController implements Initializable {
                         table.getItems().remove(selectedItem);
                     }
                 });
+                break;
             }
-            case CREDIT_OFFER -> {
+            case CREDIT_OFFER: {
                 List<CreditOffer> creditOffers = HTTPService.get("http://localhost:8080/creditOffers", LIST_CREDIT_OFFER_TYPE_REFERENCE);
                 initializeTable(CreditOffer.class, creditOffers);
                 createButton.addEventHandler(MouseEvent.MOUSE_CLICKED, mouseEvent -> {
@@ -473,8 +476,9 @@ public class CRUDController implements Initializable {
                         table.getItems().remove(selectedItem);
                     }
                 });
+                break;
             }
-            case PAYMENT -> {
+            case PAYMENT: {
                 List<Payment> payments = HTTPService.get("http://localhost:8080/payments", LIST_PAYMENT_TYPE_REFERENCE);
                 initializeTable(Payment.class, payments);
                 createButton.addEventHandler(MouseEvent.MOUSE_CLICKED, mouseEvent -> {
@@ -601,6 +605,7 @@ public class CRUDController implements Initializable {
                         table.getItems().remove(selectedItem);
                     }
                 });
+                break;
             }
         }
 
